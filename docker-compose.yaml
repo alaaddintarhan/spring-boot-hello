@@ -1,0 +1,17 @@
+version: '2'
+services:
+  hello:
+    container_name: hello2
+    build:
+      context: spring-boot-hello
+      dockerfile: Dockerfile
+    image: attin/spring-boot-hello:latest
+    ports:
+      - "8888:8888"
+    expose:
+      - "8888"
+#    networks:
+#      - spring-cloud-network
+#networks:
+#  spring-cloud-network:
+#    driver: bridge
