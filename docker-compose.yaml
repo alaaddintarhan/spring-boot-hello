@@ -1,11 +1,11 @@
 version: '2'
 services:
   hello:
-    container_name: hello2
+    container_name: hello
     build:
-      context: spring-boot-hello
+      #context: attin
       dockerfile: Dockerfile
-    image: attin/spring-boot-hello:latest
+    image: hello:1
     ports:
       - "8888:8888"
     expose:
