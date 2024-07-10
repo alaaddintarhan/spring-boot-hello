@@ -5,7 +5,7 @@ pipeline {
 		gitRepoUrl='https://github.com/alaaddintarhan/spring-boot-hello.git'
 		gitRepoBranch='master'
 		dockerImage = ''
-		dockerImageTag="${gitRepoBranch}"+"${BUILD_NUMBER}"
+		dockerImageTag="${gitRepoBranch}"+"-${BUILD_NUMBER}"
 		
 	}
 	agent any
@@ -54,12 +54,12 @@ pipeline {
     			sh 'helm upgrade hello ./hello --set imageTag=$BUILD_NUMBER'
             }
         }
-	 */	stage('Cleaning up') {
+	 stage('Cleaning up') {
 			steps{
 				sh "docker rmi $registry:$dockerImageTag"
 			}
 		}
-	/*	stage('Deploy') {
+		stage('Deploy') {
             steps {
                 echo 'Deploying the application on Docker'
                 sh "docker run -d -p 8888:8888 $registry:$BUILD_NUMBER"
