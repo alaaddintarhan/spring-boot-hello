@@ -71,6 +71,18 @@ resources: {}
 #   cpu: 100m
 #   memory: 128Mi
 
+env:
+  URL: www.values-yaml.com
+  MODE: "test"
+
+configmaps:
+  - name: development
+    data:
+      USERNAME: dev_user
+  - name: test
+    data:
+      USERNAME: test_user
+
 livenessProbe:
   httpGet:
     path: /hello/api/hi
@@ -90,8 +102,8 @@ autoscaling:
 # Additional volumes on the output Deployment definition.
 volumes: []
 # - name: foo
-#   secret:
-#     secretName: mysecret
+    secret:
+      secretName: token_password
 #     optional: false
 
 # Additional volumeMounts on the output Deployment definition.

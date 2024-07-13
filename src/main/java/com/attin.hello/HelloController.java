@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 public class HelloController {
 
+    @Value("${service.token.url}")
+    private String url;
+
+
     @Value("${service.token.username}")
     private String username;
 
@@ -19,9 +23,10 @@ public class HelloController {
         return "Hello World, Spring Boot!";
     }
 
-    @RequestMapping("/usrpsw")
+    @RequestMapping("/info")
     String usrpsw() {
-        return  "UserName :".concat(username)
+        return  "URL :".concat(url).concat("\n\r")
+                .concat(" , UserName : ").concat(username).concat("\n\r")
                 .concat(" , password : ").concat(password);
     }
 }

@@ -50,6 +50,19 @@ spec:
           volumeMounts:
             {{- toYaml . | nindent 12 }}
           {{- end }}
+          env:
+            - name: service.token.url
+              value: {{ .Values.env.URL }}
+            - name: service.token.username
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Values.env.MODE | lower }}
+                  key: USERNAME
+            - name: service.token.password
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "hello.fullname" . }}
+                  key: password
       {{- with .Values.volumes }}
       volumes:
         {{- toYaml . | nindent 8 }}
