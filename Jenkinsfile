@@ -41,7 +41,7 @@ pipeline {
 		 stage("Deploy to Kubernetes") {
              steps {
                     script {
-                         withKubeConfig([credentialsId: $kubeConfigCredential]) {
+                         withKubeConfig([credentialsId: kubeConfigCredential]) {
                              sh "helm upgrade hello ./helm --set image.repository=$registry --set image.tag=$dockerImageTag"
                          }
                      }
