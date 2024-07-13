@@ -102,8 +102,8 @@ autoscaling:
 # Additional volumes on the output Deployment definition.
 volumes: []
 # - name: foo
-    secret:
-      secretName: token_password
+#    secret:
+#     secretName: password
 #     optional: false
 
 # Additional volumeMounts on the output Deployment definition.
