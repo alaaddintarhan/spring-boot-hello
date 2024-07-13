@@ -42,7 +42,7 @@ pipeline {
              steps {
                     script {
                          withKubeConfig([credentialsId: 'kubeconfig']) {
-                               sh "helm upgrade hello ./hello --set image.tag=$dockerImageTag"
+                             sh "helm upgrade hello ./helm --set image.repository=$registry --set image.tag=$dockerImageTag"
                          }
                      }
            }
@@ -51,7 +51,7 @@ pipeline {
 	/*	stage('Applying helm charts') {
             steps {
                 echo "Running Helm"
-    			sh 'helm upgrade hello ./hello --set imageTag=$BUILD_NUMBER'
+    			sh 'helm upgrade hello ./helm --set imageTag=$BUILD_NUMBER'
             }
         }
 	 stage('Cleaning up') {
