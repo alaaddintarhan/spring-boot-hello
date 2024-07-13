@@ -1,12 +1,12 @@
 pipeline {
 	environment {
-		registry = "alaaddintarhan/hello"
+		registry = 'alaaddintarhan/hello'
 		registryCredential = 'dockerhub_id'
+		kubeConfigCredential = 'kubeconfig'
 		gitRepoUrl='https://github.com/alaaddintarhan/spring-boot-hello.git'
 		gitRepoBranch='master'
 		dockerImage = ''
 		dockerImageTag="${gitRepoBranch}"+"-${BUILD_NUMBER}"
-		
 	}
 	agent any
 	stages {
@@ -41,7 +41,7 @@ pipeline {
 		 stage("Deploy to Kubernetes") {
              steps {
                     script {
-                         withKubeConfig([credentialsId: 'kubeconfig']) {
+                         withKubeConfig([credentialsId: $kubeConfigCredential]) {
                              sh "helm upgrade hello ./helm --set image.repository=$registry --set image.tag=$dockerImageTag"
                          }
                      }
@@ -65,7 +65,5 @@ pipeline {
                 sh "docker run -d -p 8888:8888 $registry:$BUILD_NUMBER"
             }
         }*/
-		
-		
 	}
 }
