@@ -5,12 +5,12 @@
 replicaCount: 1
 
 image:
-  repository: https://hub.docker.com/repositories/alaaddintarhan
+  repository: alaaddintarhan/hello
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ${imageTag}
 
-imagePullSecrets: []
+imagePullSecrets: [{name: dockerregistrysecret}]
 nameOverride: ""
 fullnameOverride: ""
 
