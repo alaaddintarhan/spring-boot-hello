@@ -25,6 +25,8 @@ public class HelloController {
 
     @RequestMapping("/info")
     String usrpsw() {
+
+        System.out.println("... readiness service is called...");
         return  "URL :".concat(url).concat("\n\r")
                 .concat(" , UserName : ").concat(username).concat("\n\r")
                 .concat(" , password : ").concat(password);
