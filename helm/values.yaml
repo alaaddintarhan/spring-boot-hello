@@ -43,6 +43,7 @@ service:
   type: NodePort
   port: 8888
 
+
 ingress:
   enabled: false
   className: ""
