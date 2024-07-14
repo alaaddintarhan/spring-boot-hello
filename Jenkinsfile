@@ -47,7 +47,6 @@ pipeline {
                      }
            }
          }
-
 	/*	stage('Applying helm charts') {
             steps {
                 echo "Running Helm"
