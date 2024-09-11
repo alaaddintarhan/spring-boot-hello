@@ -1,0 +1,45 @@
+---
+apiVersion: "networking.k8s.io/v1"
+kind: "Ingress"
+metadata:
+  creationTimestamp: "2024-09-10T14:30:29Z"
+  generation: 1
+  managedFields:
+  - apiVersion: "networking.k8s.io/v1"
+    fieldsType: "FieldsV1"
+    fieldsV1:
+      f:spec:
+        f:rules: {}
+    manager: "okhttp"
+    operation: "Update"
+    time: "2024-09-10T14:30:29Z"
+  - apiVersion: "networking.k8s.io/v1"
+    fieldsType: "FieldsV1"
+    fieldsV1:
+      f:status:
+        f:loadBalancer:
+          f:ingress: {}
+    manager: "nginx-ingress-controller"
+    operation: "Update"
+    time: "2024-09-10T14:46:11Z"
+    subresource: "status"
+  name: "ingress-nkb"
+  namespace: "default"
+  resourceVersion: "10117"
+  uid: "63016956-133e-44a3-bac6-8bdd9459517e"
+spec:
+  rules:
+  - host: "hello.com"
+    http:
+      paths:
+      - backend:
+          service:
+            name: "hello"
+            port:
+              number: 8888
+        path: "/hello"
+        pathType: "Prefix"
+status:
+  loadBalancer:
+    ingress:
+    - ip: "192.168.49.2"8

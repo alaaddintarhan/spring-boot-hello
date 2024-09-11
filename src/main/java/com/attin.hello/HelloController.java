@@ -20,7 +20,7 @@ public class HelloController {
 
     @RequestMapping("/hi")
     String hello() {
-        return "Hello World, Spring Boot!";
+        return "Hello World, Spring Boot!  => username : ".concat(username);
     }
 
     @RequestMapping("/info")

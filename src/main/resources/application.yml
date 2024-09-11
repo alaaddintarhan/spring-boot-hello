@@ -1,0 +1,12 @@
+server:
+    port: 8888
+    servlet:
+        context-path: /hello
+service:
+    token:
+        password: password_in_the_properties
+        url: www.properties.com
+        username: username_in_the_properties
+spring:
+    application:
+        name: Hello
