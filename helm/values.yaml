@@ -126,4 +126,4 @@ tolerations: []
 affinity: {}
 
 db:
-  password: secret_password
+  password: secret_password2
